@@ -1,0 +1,23 @@
+argcomplete==3.2.2
+asgiref==3.7.2
+cffi==1.15.1
+colorlog==6.8.2
+cryptography @ file:///private/tmp/python-cryptography-20230802-6609-hza959/cryptography-41.0.3
+distlib==0.3.7
+Django==5.0.2
+django-filter==23.5
+djangorestframework==3.14.0
+filelock==3.12.4
+Markdown==3.5.2
+nox==2023.4.22
+packaging==23.2
+pip==24.0
+platformdirs==3.10.0
+pycparser @ file:///private/tmp/pycparser-20230831-6050-10bkury/pycparser-2.21
+pytz==2024.1
+PyYAML @ file:///private/tmp/pyyaml-20230718-6387-cxgeib/PyYAML-6.0.1
+setuptools @ file:///usr/local/Cellar/python%403.11/3.11.5/Frameworks/Python.framework/Versions/3.11/lib/python3.11/ensurepip/_bundled/setuptools-68.1.2-py3-none-any.whl#sha256=ccf32376ed5c23b0f24a76dd4c7123394820f0b7c5ca43f4e67eee465cfaee94
+six==1.16.0
+sqlparse==0.4.4
+virtualenv==20.24.5
+wheel @ file:///usr/local/Cellar/python%403.11/3.11.5/libexec/wheel-0.41.2-py3-none-any.whl#sha256=ca672845328b53d47806beda09620b0e061978af42e8305988cfa6b358424c98
