@@ -1,0 +1,27 @@
+{% for order in orders %}
+<div>
+    <span>가게이름: {{order.shop.shop_name}}</span><br/>
+    <span>주문일시: {{order.order_date}}</span><br/>
+    <span>배달장소: {{order.address}}</span><br/>
+    <span>배달 예상 소요 시간: </span>
+    {% if order.estimated_time != -1 %}
+        <span>{{order.estimated_time}}분</span>
+    {% else %}
+        <form method="POST" action="{% url 'owners:estimated' order.id %}">
+            <input type="number" name="estimated_time" />
+            <span>(분)</span>
+            <input type="submit" value="예상 시간 입력"/>
+        </form>
+    {% endif %}
+</div>
+
+<div style="height: 20px;"></div>
+<span>메뉴: </span>
+{% for food in order.orderfood_set.all %}
+<ul>
+    <li>{{food.food_name}}</li>
+</ul>
+{% endfor %}
+
+<div style="border: 1px solid black; margin: 20px 0;"></div>
+{% endfor %}
