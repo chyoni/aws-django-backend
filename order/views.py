@@ -4,6 +4,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.utils import timezone
 from rest_framework.parsers import JSONParser
 from order.models import Shop, Menu, Order, Orderfood
+from user.models import User
 from order.serializers import ShopSerializer, MenuSerializer
 
 @csrf_exempt
@@ -51,8 +52,17 @@ def order(request):
 
     if request.method == "GET":
 
-        orders = Order.objects.all()
-        return render(request, 'order/order_list.html', { 'orders': orders })
+        try:
+            user_id = request.session['user_id']
+            
+            user = User.objects.get(pk=user_id)
+
+            if user.user_type == 0:
+                orders = Order.objects.all()
+                return render(request, 'order/order_list.html', { 'orders': orders })
+            return render(request, 'order/unauthorized.html')
+        except:
+            return render(request, 'order/unauthorized.html')
 
     if request.method == "POST":
         address = request.POST['address']
